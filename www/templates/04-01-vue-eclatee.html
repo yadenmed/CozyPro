@@ -1,0 +1,49 @@
+<ion-view title="Vue éclatée" >
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+
+    <ion-content class="has-header has-footer" has-bouncing="true" >
+
+        <div class="list wrapping-list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+            <div class="card ">
+
+              <div class="item item-body">
+                <span ng-click="modalVueEclatee.show()">
+                  <h1><i class="icon ion-search" style="position:absolute;"></i></h1>
+                </span>
+                <img src="{{products[id]['vue eclatee']}}" style="width:95%;" ng-click="modalVueEclatee.show()" >
+              </div>
+
+            </div>
+        </div>
+
+        <ion-list id="list">
+            <ion-item type="item-text-wrap" class="row" >
+                <strong class="col col-25">Numéro</strong>
+                <strong class="col" >Nom de la pièce</strong>
+                <strong class="col col-20">Référence</strong>
+            </ion-item>
+            <ion-item ng-repeat="piece in pieces | filter:searchKey.text" class="row">
+                <span class="col col-25">{{piece.id}}</span>
+                <span class="col item-text-wrap" >{{piece.label}}</span>
+                <span class="col col-20">{{piece.ref}}</span>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+    <div class="bar bar-footer item-input-inset bar-dark">
+        <label class="item-input-wrapper ">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input id="searchKey" type="search" placeholder="Rechercher une pièce" ng-model="searchKey.text" autocorrect="off" ng-click="scrollTo('list')" >
+            
+        </label>
+        <button ng-if="searchKey.text.length>0" class="button button-clear" ng-click="clear()">X</button>
+        <!-- <button class="button button-clear" ng-click="search()">Rechercher</button> -->
+    </div>
+</ion-view>

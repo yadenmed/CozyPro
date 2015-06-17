@@ -1,0 +1,31 @@
+{"pieces" :
+
+{
+	"1": {"label" : "FILTRE", "ref": "029370"},
+	"2": {"label" : "TRAPPE DE FILTRE AVEC PIECE THERMOFORMEE", "ref": "022499"},
+	"3": {"label" :" ENSEMBLE COIFFE POUR PIQUAGES D160MM", "ref": "022576"},
+	"5": {"label" : "VIROLE DROITE HABILLAGE PAC", "ref": "022596"},
+	"6": {"label" : "VIROLE GAUCHE HABILLAGE PAC", "ref": "022597"},
+	"7": {"label" : "VENTILATEUR POMPE A CHALEUR", "ref": "029271"},
+	"8": {"label" : "CARTER SEUL VENTILATEUR POMPE A CHALEUR", "ref": "029272"},
+	"9": {"label" :"SOCLE POMPE A CHALEUR","ref": "022504"},
+	"10": {"label" :"CONNEXION PIPETTE (ENT ONNOIR)","ref": "029273"},
+	"11": {"label" :"PIED FIXE","ref": "022599"},
+	"12": {"label" :"CAPOT DE FACADE AEROMAX VMC","ref": "022515"},
+	"13": {"label" :"PRESSOSTAT + FILERIE PAC","ref": "029274"},
+	"14": {"label" :"COMPRESSEUR","ref": "029275"},
+	"16": {"label" :"DETENDEUR POMPE A CHALEUR","ref": "029277"},
+	"17": {"label" :"SONDE DE PRESSION AVEC RACCORDEMENT AIR","ref": "029278"},
+	"18": {"label" :"THERMOSTAT DE SECURITE","ref": "070326"},
+	"19": {"label" :"BOITIER ELECTRONIQUE DE REGULATION","ref": "070327"},
+	"20": {"label" :"ENS. FILERIES ELECTRIQUES CHOD","ref": "026136"},
+	"21": {"label" :"ENS. SONDES DE TEMPERATURE (X3)","ref": "029279"},
+	"22": {"label" :"RESISTANCE STEATITE","ref": "099024"},
+	"23": {"label" :"JOINT A LEVRE","ref": "099060"},
+	"24": {"label" :"CORPS DE CHAUFFE + JOINT","ref": "030146"},
+	"25": {"label" :"ANODE ACI + BOUCHON","ref":  "040374"},
+	"26": {"label" :"PATTE DE FIXATION","ref": "022507"},
+	"27": {"label" :"CONDENSATEUR 7,5UF POUR COMPRESSEUR","ref": "026220"},
+	"42": {"label" :"TUYAU EVACUATION CONDENSATS V1BIS","ref": "029300"}
+}
+}

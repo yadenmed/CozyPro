@@ -1,0 +1,26 @@
+{
+  "dysfonctionnements":[
+    {
+      "symptome":"Pas d’eau chaude",
+      "causes":[
+        "Ce chauffe-eau est équipé du système anti chauffe à sec : si le chauffe-eau n’est pas rempli d’eau, l’anti chauffe à sec est activée et empêche l’alimentation électrique de l’élément chauffant."
+      ],
+      "diagnostics":[
+        "Vérifiez que le chauffe-eau est bien rempli en ouvrant en robinet d’eau chaude.",
+        "Vérifiez la connexion du connecteur et du fil de masse.",
+        "Vérifier que la résistivité de l’eau est bien comprise entre 0,5 et 25 kOhms"
+      ]
+    },
+    {
+      "symptome":"Plus de chauffe.\nPas d’eau chaude.",
+      "causes":[
+        "Pas d’alimentation électrique du chauffe-eau : contacteur jour/nuit hors service, fusibles, etc…",
+        "Elément chauffant ou son câblage hors service.",
+        "Circuit ouvert : filerie mal connectée ou coupée."
+      ],
+      "diagnostics":[
+        "Examen visuel du raccordement de la filerie."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<ion-view title="Aide au diagnoistic" hide-back-button="true">
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+<ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+    <ion-content has-header="true"  has-bouncing="true">
+
+        <div class="list ">
+          
+            <div class="item item-thumbnail-left item-button-right">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </div>
+
+            <a class="item item-icon-left" ng-click="" href="#/app/erreurs/{{urlId}}">
+            <i class="icon ion-ios-star-outline"></i>
+              Assistant d'erreurs
+            </a>
+            <a class="item item-icon-left" ng-click="" href="#/app/dysfonctionnements/{{urlId}}">
+            <i class="icon ion-ios-star-outline"></i>
+              Les dysfonctionnements
+            </a>
+            <a class="item item-icon-left" ng-click="" href="#">
+            <i class="icon ion-star"></i>
+              Visio maintenance
+            </a>
+            <a class="item item-icon-left" ng-click="" href="#">
+            <i class="icon ion-star"></i>
+              FAQ
+            </a>
+            <a class="item item-icon-left" ng-click="" href="#">
+            <i class="icon ion-star"></i>
+              Mise à jour logiciel
+            </a>
+
+              
+        </div>
+
+    </ion-content>
+
+</ion-view>

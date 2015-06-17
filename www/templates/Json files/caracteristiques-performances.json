@@ -1,0 +1,159 @@
+{
+  "caracteristiques":{
+    "Dimensions":{
+      "individuel":"1657 x l 588 x P 626",
+      "collectif":"1657 x l 588 x P 626",
+      "unite":"mm"
+    },
+    "Poids à vide":{
+      "individuel":"80",
+      "collectif":"78",
+      "unite":"kg"
+    },
+    "Capacité de la cuve":{
+      "individuel":"200",
+      "collectif":"200",
+      "unite":"L"
+    },
+    "Raccordement eau chaude /eau froide":{
+      "individuel":"3/4 ’ ’",
+      "collectif":"3/4 ’ ’",
+      "unite":""
+    },
+    "Diamètre extérieur du tuyau de raccordement des condensats":{
+      "individuel":"17",
+      "collectif":"17",
+      "unite":"mm"
+    },
+    "Protection anti-corrosion":{
+      "individuel":"ACI Hybride",
+      "collectif":"ACI Hybride",
+      "unite":""
+    },
+    "Pression d’utilisation maximale":{
+      "individuel":"10",
+      "collectif":"10",
+      "unite":"bar"
+    },
+    "Raccordement électrique":{
+      "individuel":"230 V monophasé 50 Hz",
+      "collectif":"230 V monophasé 50 Hz",
+      "unite":"(tension / fréquence)"
+    },
+    "Puissance nominale absorbée par":{
+      "individuel":"400",
+      "collectif":"375",
+      "unite":"W"
+    },
+    "Puissance absorbée par appoint électrique":{
+      "individuel":"",
+      "collectif":"",
+      "unite":""
+    },
+    "Plage de réglage de la température de l’eau par pompe à chaleur":{
+      "individuel":"1800",
+      "collectif":"1800",
+      "unite":"W"
+    },
+    "Plage de température d’utilisation de la pompe à chaleur (température de l’air extrait)":{
+      "individuel":"5 à 35",
+      "collectif":"5 à 35",
+      "unite":"°C"
+    },
+    "Débit d’air en configuration gainé sur la VMC":{
+      "individuel":"35 à 265",
+      "collectif":"35 à 265",
+      "unite":"m3/h"
+    },
+    "Pression d’aspiration":{
+      "individuel":"110 réglé en usine, 130 si caisson de répartition",
+      "collectif":"",
+      "unite":"Pa"
+    },
+    "Fluide frigorigène":{
+      "individuel":"R134a* / 0,7",
+      "collectif":"R134a* / 0,7",
+      "unite":"-/Kg"
+    },
+    "Charge en fluide rapportée au volume d’eau":{
+      "individuel":"0,00375",
+      "collectif":"0,00375",
+      "unite":"Kg/L"
+    }
+  },
+  "performances":{
+    "A un débit d’air de 150 m3/h":{
+      "Coefficient de performance (COP)":{
+        "individuel":"3,55",
+        "collectif":"3,36",
+        "unite":""
+      },
+      "Pes":{
+        "individuel":"24,9",
+        "collectif":"26,1",
+        "unite":"W"
+      },
+      "Temps de chauffe (tr)":{
+        "individuel":"11h58mn",
+        "collectif":"11h58mn",
+        "unite":""
+      },
+      "Température de référence (Tref)":{
+        "individuel":"53,0",
+        "collectif":"53,0",
+        "unite":"°C"
+      }
+    },
+    "A un débit d’air de 57 m3/h":{
+      "Coefficient de performance (COP)":{
+        "individuel":"3,21",
+        "collectif":"3,23",
+        "unite":""
+      },
+      "Pes":{
+        "individuel":"28,0",
+        "collectif":"27,8",
+        "unite":"W"
+      },
+      "Temps de chauffe (tr)":{
+        "individuel":"14h10mn",
+        "collectif":"14h10mn",
+        "unite":""
+      },
+      "Température de référence (Tref)":{
+        "individuel":"53,1",
+        "collectif":"53,1",
+        "unite":"°C"
+      }
+    },
+    "A un débit d’air de 35 m3/h":{
+      "Coefficient de performance (COP)":{
+        "individuel":"2,77",
+        "collectif":"2,77",
+        "unite":""
+      },
+      "Pes":{
+        "individuel":"28,8",
+        "collectif":"28,2",
+        "unite":"W"
+      },
+      "Temps de chauffe (tr)":{
+        "individuel":"17h01mn",
+        "collectif":"17h01mn",
+        "unite":""
+      },
+      "Température de référence (Tref)":{
+        "individuel":"53,0",
+        "collectif":"53,0",
+        "unite":"°C"
+      }
+    },
+    "Produit certifié NF Electricité Performance":{
+      "Puissance acoustique***":{
+        "individuel":"49,1***",
+        "collectif":"45,7****",
+        "unite":"dB(A)"
+      }
+    }
+  }
+}

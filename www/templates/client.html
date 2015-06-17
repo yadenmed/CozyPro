@@ -1,0 +1,41 @@
+<ion-view title="{{client.nom}}">
+
+    <ion-content has-header="true" padding="true" has-bouncing="true">
+
+        <div class="list card">
+          
+            <div class="item item-thumbnail-left item-button-right">
+               <img src="{{client.img}}"/>
+               <h2 style="font-size: 6vmin;">{{client.nom}}</h2>
+               <button class="button icon ion-edit button-dark button-clear" ng-click="modalEdit.show()"></button>         
+            </div>
+
+              <a class="item item-icon-left" href="#/app/client-equipements/{{idClient}}">
+                <i class="icon ion-home"></i>Voir ses équipements
+                <p>{{client.equipements.length}} équipement<span ng-if="client.equipements.length>1">s</span></p>
+              </a>
+              <a class="item item-icon-left" href="geo:47.219990, -1.533814">
+                <i class="icon ion-location"></i>Adresse
+                <p>{{client.adresse}} </br> {{client.CodePostal}}, {{client.ville}} </p>
+              </a>
+              <a class="item item-icon-left" href="tel:{{client.Tel}}">
+                <i class="icon ion-ios-telephone"></i>Appeler ce client
+                <p>{{client.Tel}}</p>
+              </a>
+              <a class="item item-icon-left" ng-href="sms:{{client.Tel}}">
+                <i class="icon ion-android-textsms"></i>Envoyer SMS
+                <p>{{client.Tel}}</p>
+              </a>
+              <a class="item item-icon-left" ng-href="mailto:{{client.email}}">
+                <i class="icon ion-at"></i>Envoyer Email
+                <p>{{client.email}}</p>
+              </a>
+              <a class="item item-icon-left" ng-click="modalInterventions.show()">
+                <i class="icon ion-settings"></i>Liste des interventions
+                <p>Dernière intervention : {{client.lastIntervention}}</p>
+              </a>
+        </div>
+
+    </ion-content>
+
+</ion-view>

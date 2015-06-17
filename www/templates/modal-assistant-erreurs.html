@@ -1,0 +1,37 @@
+<div class="modal" ng-controller="AssistantErreurs">
+    <ion-header-bar class="bar bar-header bar-dark">
+        
+        <h1 class="title">Assistant d'erreurs</h1>
+        <div class="button button-clear" ng-click="modalAssistantErreurs.hide()"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-header="true" padding="true">
+
+    
+    <div class="card">
+      <center class="item item-divider">
+        {{currentErrorTitle}}
+      </center>
+      <center class="item item-text-wrap">
+        {{currentErreur.content}}
+        <h3 class="assertive" ng-if="currentErreur.code">
+            <strong>Code de dépannage : {{currentErreur.code}}</strong>
+        </h3>
+      </center>
+      <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" ng-click="yes()" ng-if="currentErreur.yes">
+            <i class="icon ion-checkmark-circled balanced"></i>
+            Oui
+          </a>
+          <a class="tab-item" ng-click="no()" ng-if="currentErreur.no">
+            <i class="icon ion-close-circled assertive"></i>
+            Non
+          </a>
+          <a class="tab-item" ng-click="modalAssistantErreurs.hide()" ng-if="!currentErreur.no && !currentErreur.yes">
+            Terminer
+          </a>
+        </div>
+
+    </div>
+    </ion-content>
+</div>

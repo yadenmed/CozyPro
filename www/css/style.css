@@ -1,0 +1,169 @@
+/* Empty. Add your own CSS if you like */
+
+.fake-background{
+	background-color: gray;
+}
+
+.big-icon{
+	font-size:100px;
+}
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+.wrapping-list .item-content, .wrapping-list .item {
+    overflow: initial;
+    white-space: initial;
+}
+
+.popup {
+    width: inherit !important;
+}
+
+.hide{
+  display:none;
+}
+@media (min-width: 1200px) {
+  .grid-products.col{
+  width:300px;
+  float: left;
+  }
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .grid-products.col{
+    width:300px;
+    margin: 1% 10px !important;
+
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .grid-products.col{
+    width:300px;
+   
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .grid-products.col{
+    width:90%;
+  }
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+  .grid-products.col{
+    width:90%;
+   
+  }
+}
+.grid-products.col{
+  display:inline-block;
+  margin:1%;
+  /*float: left;*/
+}
+
+.logo img{
+  width: 100px;
+}
+
+.logo{
+  margin : 50px auto;
+  -ms-transform: rotate(15deg); /* IE 9 */
+  -webkit-transform: rotate(15deg); /* Chrome, Safari, Opera */
+  transform: rotate(15deg);
+}
+
+.menu-header>a{
+  background-color: #444 !important;
+}
+
+.menu-header>.item-content>h2,.menu-header>.item-content>p{
+  color:white;
+}
+.item.item-avatar.menu-header.item-complex{
+  border: none;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('fonts/icomoon.eot?u6l22c');
+  src:url('fonts/icomoon.eot?#iefixu6l22c') format('embedded-opentype'),
+    url('fonts/icomoon.woff?u6l22c') format('woff'),
+    url('fonts/icomoon.ttf?u6l22c') format('truetype'),
+    url('fonts/icomoon.svg?u6l22c#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qrcode:before {
+  content: "\e938";
+}
+
+/*button.tooltips {
+  position: relative;
+  display: inline;
+}*/
+button.tooltips span {
+  position: absolute;
+  width:160px;
+  color: #FFFFFF;
+  background: #444;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  /*visibility: hidden;*/
+  border-radius: 6px;
+  visibility: visible;
+  opacity: 1;
+  right: 100%;
+  top: 50%;
+  margin-top: -15px;
+  margin-right: 15px;
+  z-index: 999;
+  font-weight: bold;
+}
+button.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -8px;
+  width: 0; height: 0;
+  border-left: 8px solid #444;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+.spinner svg {
+  width: 50px;
+  height: 50px;
+}

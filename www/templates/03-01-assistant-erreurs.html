@@ -1,0 +1,38 @@
+<ion-view title="Les dysfonctionnements" >
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+<div class="bar bar-subheader item-input-inset">
+    <label class="item-input-wrapper ">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Rechercher" ng-model="query.text" autocorrect="off" >
+        
+    </label>
+    <button ng-if="searchKey.text.length>0" class="button button-clear" ng-click="clear()">X</button>
+    <!-- <button class="button button-clear" ng-click="search()">Rechercher</button> -->
+</div>
+    <ion-content class="has-header has-subheader" has-bouncing="true">
+
+        <div class="list wrapping-list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+            <ion-list>
+             
+                
+                <a class="item item-icon-right item-accordion" ng-repeat="erreur in erreurs | filter: search" ng-click="showModalAssistantErreurs({{erreurs.indexOf(erreur)}})">
+                  <strong>Erreur {{erreur.id}} :</strong> {{erreur.title}}
+                  <i class="icon ion-chevron-right"></i>
+                </a>
+              
+            </ion-list>
+   
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

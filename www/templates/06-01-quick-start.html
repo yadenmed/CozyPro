@@ -1,0 +1,54 @@
+<ion-view title="Quick start" >
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list wrapping-list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+            <div class="list card " ng-repeat="step in quickStart" >
+
+              <div class="item item-avatar" >
+                <img src="{{step.thumbnail}}">
+                <h2 style="font-size: 4vmin;">{{step.label}}</h2>
+                <p>{{step.description.label}}</p>
+              </div>
+
+              <ion-slide-box show-pager="true" style="text-align: center;">   
+             
+                <ion-slide ng-repeat="image in step.images" >
+                    <img src="{{image}}">
+                </ion-slide>
+            
+              </ion-slide-box>
+
+              <div class="item item-body" ng-if="step.description.content.length>0">
+                
+                <center ng-repeat="content in step.description.content">
+                  {{content}}
+                </center>
+              </div>
+
+             <!--  <div class="row">
+                <a class="button icon-left ion-chevron-left button-clear button-dark col" >
+                  Précédent
+                </a>
+                <a class="button icon-right ion-chevron-right button-clear button-dark col" >
+                  Suivant
+                </a>
+              </div> -->
+
+            </div>
+            
+   
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

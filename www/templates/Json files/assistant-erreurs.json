@@ -1,0 +1,79 @@
+"erreurs":[
+  {
+    "id":3,
+    "title":"Sonde ECS doigt de gant",
+    "content":"Les connecteurs sont-ils bien en place sur la carte de régulation ?",
+    "yes":{
+      "content":"La sonde de température d'eau est-elle bien positionnée, au fond du doigt de gant ? (voir notice)",
+      "yes":{
+        "content":"Sonde HS",
+        "code":"13A 003 002"
+      },
+      "no":{
+        "content":"Corriger le positionnement",
+        "code":"13A 003 003"
+      }
+    },
+    "no":{
+      "content":"Corriger la connectique",
+      "code":"13A 003 001"
+    }
+  },
+  {
+    "id":7,
+    "title":"Courant de protection",
+    "content":"L'appareil est-il plein d'eau ?",
+    "yes":{
+      "content":"Les connecteurs du circuit de protection de cuve ACI sont-ils bien en place sur la carte de régulation et en sortie du doigt de gant?",
+      "yes":{
+        "content":"Contacter le SAV",
+        "code":"13A 007 002"
+      },
+      "no":{
+        "content":"Corriger la connectique",
+        "code":"13A 007 003"
+      }
+    },
+    "no":{
+      "content":"CRemplir le chauffe-eau.",
+      "code":"13A 007 001"
+    }
+  },
+  {
+    "id":9,
+    "title":"Détection eau trop chaude",
+    "content":"La sonde de température d'eau percoit une témpérature supérieure à 80°C. Faites couler un robinet d'eau chaude. L'eau est-elle très chaude ?",
+    "yes":{
+      "content":"L'appoint électrique est-il alimenté (faire une mesure de tension aux bornes de la résistance ) ?",
+      "yes":{
+        "content":"Remplacer la carte de régulation.",
+        "code":"13A 009 001"
+      },
+      "no":{
+        "content":"Probable entartrage du chauffe-eau. Faire un détartrage.",
+        "code":"13A 009 002"
+      }
+    },
+    "no":{
+      "content":"Les connecteurs du circuit de protection de cuve ACI sont-ils bien en place sur la carte de régulation et en sortie du doigt de gant?",
+      "yes":{
+        "content":"Les connecteurs sont-ils bien en place sur la carte de régulation ?",
+        "yes":{
+          "content":"La sonde de température d'eau est-elle bien positionnée, au fond du doigt de gant ? (voir notice)",
+          "yes":{
+            "content":"Sonde ECS doigt de gant HS",
+            "code":"13A 009 004"
+          },
+          "no":{
+            "content":"Corriger le positionnement de la sonde ECS doigt de gant",
+            "code":"13A 007 005"
+          }
+        },
+        "no":{
+          "content":"Corriger la connectique",
+          "code":"13A 007 003"
+        }
+      }
+    }
+  }
+]

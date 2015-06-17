@@ -1,0 +1,32 @@
+<ion-view title="Contacts SAV" >
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+
+    <ion-content has-header="true" has-bouncing="true">
+    <div class="list wrapping-list">
+      
+        <div class="item item-thumbnail-left item-button-right">
+              <img src="./img/hotline.png"/>
+              <h2 style="font-size: 5vmin; overflow: initial; white-space: initial;">{{contactSAV.departement}}</h2>
+              <p style="overflow: initial; white-space: initial;">{{contactSAV.disponibilite}}</p>              
+        </div>
+
+          <a class="item item-icon-left" href="geo:47.219990, -1.533814">
+            <i class="icon ion-location"></i>Adresse
+            <p>{{contactSAV.adresse}} </br> {{contactSAV['code postal']}}, {{contactSAV.ville}} </p>
+          </a>
+          <a class="item item-icon-left" href="tel:{{contactSAV['num azur']}}">
+            <i class="icon ion-ios-telephone"></i>
+            N° Azur :
+            <p>{{contactSAV['num azur']}}</p> 
+          </a>
+          <a class="item item-icon-left" href="http://{{contactSAV.site}}">
+            <i class="icon ion-at"></i>Site internet:
+            <p>{{contactSAV.site}}</p>
+          </a>
+        
+    </div>
+
+    </ion-content>
+
+</ion-view>

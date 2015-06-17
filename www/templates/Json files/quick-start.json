@@ -1,0 +1,81 @@
+{
+  "quick start":[
+    {
+      "thumbnail":"./img/quick-start/1-step1.jpg",
+      "label":"Je règle la date et l'heure",
+      "description":{
+        "label":"",
+        "content":[
+
+        ]
+      },
+      "images":[
+        "./img/quick-start/1-step1-1.jpg",
+        "./img/quick-start/1-step1-2.jpg",
+        "./img/quick-start/1-step1-3.jpg"
+      ]
+    },
+    {
+      "thumbnail":"./img/quick-start/1-step2.jpg",
+      "label":"J'active le pilotage intelligent",
+      "description":{
+        "label":"Qu’est-ce que le pilotage intelligent ?",
+        "content":[
+          "Adaptation du besoin en eau chaude en fonction du nombre de douches ou bains souhaité : il optimise ainsi votre confort et vos économies.",
+          "En cas d’absence ou de départ en vacances, le chauffe-eau détecte et évite tout gaspillage d’eau chaude.",
+          "Vous n’avez rien à faire, ODYSSÉE s’occupe de tout, tout seul !"
+        ]
+      },
+      "images":[
+        "./img/quick-start/1-step2-1.jpg",
+        "./img/quick-start/1-step2-2.jpg"
+      ]
+    },
+    {
+      "thumbnail":"./img/quick-start/1-step3.jpg",
+      "label":"Je pars en vacances",
+      "description":{
+        "label":"",
+        "content":[
+          "Je règle la date de départ et la date de retour"
+        ]
+      },
+      "images":[
+        "./img/quick-start/1-step3-1.jpg",
+        "./img/quick-start/1-step3-2.jpg"
+      ]
+    },
+    {
+      "thumbnail":"./img/quick-start/1-step4.jpg",
+      "label":"J'ai du monde à la maison, je veux plus d'eau chaude rapidement",
+      "description":{
+        "label":"",
+        "content":[
+          "Je règle la durée pendant laquelle je veux avoir le maximum d’eau chaude.",
+          "À la fin de la durée que j’ai réglée, le chauffe-eau reprendra automatiquement son fonctionnement initial."
+        ]
+      },
+      "images":[
+        "./img/quick-start/1-step4-1.jpg",
+        "./img/quick-start/1-step4-2.jpg"
+      ]
+    },
+    {
+      "thumbnail":"./img/quick-start/1-step5.jpg",
+      "label":"Je veux avoir des informations sur mes consommations",
+      "description":{
+        "label":"",
+        "content":[
+
+        ]
+      },
+      "images":[
+        "./img/quick-start/1-step5-1.jpg",
+        "./img/quick-start/1-step5-2.jpg",
+        "./img/quick-start/1-step5-3.jpg",
+        "./img/quick-start/1-step5-4.jpg",
+        "./img/quick-start/1-step5-5.jpg"
+      ]
+    }
+  ]
+}

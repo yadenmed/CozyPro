@@ -1,0 +1,25 @@
+<ion-view title="{{client.nom}}">
+
+    <ion-content has-header="true" padding="true" has-bouncing="true">
+
+        <div class="list card">
+            <div class="item item-thumbnail-left">
+                <img src="{{client.img}}"/>
+                <h2 style="font-size: 6vmin;">{{client.nom}}</h2>
+                <p>{{clientEquipements.length}} équipement<span ng-if="client.equipements.length>1">s</span></p>
+                
+            </div>
+            <a ng-repeat="equipement in clientEquipements" class="item item-avatar item-icon-left" ng-click="showModalMenuChoice($index)">
+                <img src="{{equipement.image}}"/>
+                {{equipement.name}} 
+                <p>{{equipement.type.label}}</p>
+            </a>
+            <ion-item class="item-icon-left" href="#">
+            <i class="icon ion-plus"></i>
+              <strong>Ajouter un équipement</strong>
+            </ion-item>
+        </div>
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,117 @@
+{
+  "quick installation":{
+    "caution":"Effectuer le remplissage du ballon avant la mise sous tension.",
+    "steps":[
+      {
+        "label":"Mise en place du chauffe-eau",
+        "description":{
+          "label":"",
+          "content":[
+            "L’étiquette signalétique située au-dessus de la sortie eau chaude doit être accessible à tout moment.",
+            "Le chauffe-eau doit être installé sur un sol lisse et horizontal.",
+            "Pour orienter les bouches, retirer les vis de blocage.",
+            "Avant le remplissage, le chauffe-eau doit être mis de niveau à l’aide des pieds réglables (livrés séparément).",
+            "Fixer le chauffe-eau au sol avec la sangle (l’oeillet permettant la fixation peut être positionné à droite ou à gauche)."
+          ]
+        },
+        "images":[
+          "./img/quick-installation/1-step1-1.jpg",
+          "./img/quick-installation/1-step1-2.jpg"
+        ]
+      },
+      {
+        "label":"Raccordements hydrauliques",
+        "description":{
+          "label":"Branchement eau froide et eau chaude",
+          "content":[
+            "Un raccord diélectrique doit impérativement être installé sur la sortie eau chaude.",
+            "Important : monter les accessoires hydrauliques livrés."
+          ]
+        },
+        "images":[
+          "./img/quick-installation/1-step2-1.jpg"
+        ]
+      },
+      {
+        "label":"Raccordements hydrauliques",
+        "description":{
+          "label":"Evacuation des condensats",
+          "content":[
+            "Insérer le tuyau d’évacuation des condensats sur le collecteur d’écoulement à l’arrière droite du produit.",
+            "Fixer le clip de serrage sur le tuyau d’écoulement et le serrer dans la zone de recouvrement du tube et du collecteur.",
+            "Raccorder l’autre extrémité du tuyau à l’évacuation des eaux usées au travers d’un siphon."
+          ]
+        },
+        "images":[
+          "./img/quick-installation/1-step2-1.jpg"
+        ]
+      },
+      {
+        "label":"Raccordements hydrauliques",
+        "description":{
+          "label":"Remplir le chauffe-eau",
+          "content":[
+
+          ]
+        },
+        "images":[
+          "./img/quick-installation/1-step2-1.jpg"
+        ]
+      },
+      {
+        "label":"Raccordements aérauliques",
+        "description":{
+          "label":"Sur air ambiant",
+          "content":[
+
+          ]
+        },
+        "images":[
+          "./img/quick-installation/1-step3-1.jpg",
+          "./img/quick-installation/1-step3-2.jpg",
+          "./img/quick-installation/1-step3-3.jpg"
+        ]
+      },
+      {
+        "label":"Raccordements aérauliques",
+        "description":{
+          "label":"Gainé sur air extérieur",
+          "content":[
+
+          ]
+        },
+        "images":[
+          "./img/quick-installation/1-step3-4.jpg",
+          "./img/quick-installation/1-step3-5.jpg",
+          "./img/quick-installation/1-step3-6.jpg"
+        ]
+      },
+      {
+        "label":"Raccordements électriques",
+        "description":{
+          "label":"cf. page 19 de la notice",
+          "content":[
+            "Retrouvez les schémas électriques dans les pages de couverture de notice.",
+            "Le chauffe-eau doit être alimenté électriquement de façon permanente."
+          ]
+        },
+        "images":[
+          "./img/quick-installation/1-step4-1.jpg"
+        ]
+      },
+      {
+        "label":"Mise en route",
+        "description":{
+          "label":"",
+          "content":[
+            "Mettez l’appareil sous tension puis suivez les indications affichées sur l’écran.",
+            "Afin d’accéder au menu installateur, tournez la molette d’un demi-tour vers la droite tout en appuyant sur MENU."
+          ]
+        },
+        "images":[
+
+        ]
+      }
+    ]
+  }
+}

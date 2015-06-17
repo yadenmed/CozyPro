@@ -1,0 +1,29 @@
+
+<ion-view  title="Accueil (DEMO)" >
+    
+    <ion-content padding="false" scroll="false" class="has-header" fab-scroll-container>
+    
+    <div class="category row responsive-lg " style="padding:0px; height: 100%">
+        
+        <button class="col col-50 button  button-block button-calm " style="margin:0px; font-weight:bold;" ng-click="go('app.clients');showParam()">
+         <i class="ion-ios-people-outline big-icon"></i>
+        <p>Mes clients</p>
+       </button>
+        <button class="col col-50 button button-full button-energized" style="margin:0px; font-weight:bold; " ng-click="go('app.products');showParam()" >
+         <i class="ion-ios-home-outline big-icon"></i>
+        <p>Ma liste des produits</p>
+       </button>
+    </div>
+       
+    </ion-content>
+    
+   
+        
+    <fab class="tooltips" ng-click="QRScan()">
+        <span>Scanner un QR Code</span>
+       <i class="icon icon-qrcode"></i>
+
+    </fab>
+    
+
+</ion-view>

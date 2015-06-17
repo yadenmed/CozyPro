@@ -1,0 +1,69 @@
+<ion-view title="Caractéristiques et performances">
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list wrapping-list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+          <ion-list>
+            <div>
+              <ion-item class="item-stable" ng-click="toggleGroup(caracteristiques);scrollTop()" ng-class="{active: isGroupShown(caracteristiques)}"> 
+                  <i class="icon" ng-class="isGroupShown(caracteristiques) ? 'ion-minus' : 'ion-plus'"></i>
+                Caractéristiques techniques
+              </ion-item>
+              <ion-item class="item-accordion" ng-repeat="(key,value) in caracteristiques" ng-show="isGroupShown(caracteristiques)">
+                <div class="row">
+                  <strong>{{key}}</strong>
+                </div>
+                <div class="row">
+                  <span class="col" ng-if="value.collectif!=value.individuel">
+                    <strong>Individuel: </strong>{{value.individuel}} {{value.unite}}</span>
+                  <span class="col" ng-if="value.collectif===value.individuel">
+                    {{value.individuel}} {{value.unite}}
+                  </span> 
+                  <span class="col" ng-if="value.collectif!=value.individuel">
+                    <strong>Collectif: </strong> {{value.collectif}} {{value.unite}}
+                  </span>
+                </div>  
+              </ion-item>
+
+              <ion-item class="item-stable" ng-click="toggleGroup(performances);scrollTop()" ng-class="{active: isGroupShown(performances)}"> 
+                  <i class="icon" ng-class="isGroupShown(performances) ? 'ion-minus' : 'ion-plus'"></i>
+                Performances
+              </ion-item>
+              <span ng-repeat="(key,value) in performances">
+                <ion-item class="item-accordion item-divider" ng-show="isGroupShown(performances)">
+                <strong>{{key}}</strong>
+                </ion-item>
+                <ion-item ng-repeat="(k,v) in performances[key]" class="item-accordion" ng-show="isGroupShown(performances)">
+                <div class="row">
+                  <strong>{{k}}</strong>
+                </div>
+                <div class="row">
+                  <span class="col" ng-if="v.collectif!=v.individuel">
+                    <strong>Individuel: </strong>{{v.individuel}} {{v.unite}}</span>
+                  <span class="col" ng-if="v.collectif===v.individuel">
+                    {{v.individuel}} {{v.unite}}
+                  </span> 
+                  <span class="col" ng-if="v.collectif!=v.individuel">
+                    <strong>Collectif: </strong> {{v.collectif}} {{v.unite}}
+                  </span>
+                </div> 
+                </ion-item>
+              </span>
+   
+            </div>
+          </ion-list>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

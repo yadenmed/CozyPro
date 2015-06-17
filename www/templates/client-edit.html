@@ -1,0 +1,48 @@
+<div class="modal">
+    <ion-header-bar class="bar bar-header bar-dark">
+        <div class="button button-clear" ng-click="modalEdit.hide()"><span class="icon ion-chevron-left"></span></div>
+        <h1 class="title">Edition client</h1>
+        <div class="button button-clear" ng-click="save()"><span class="icon ion-android-done"></span></div>
+    </ion-header-bar>
+
+    <ion-content has-header="true" padding="true">
+
+        <div class="list card">
+          
+            <div class="item item-thumbnail-left item-button-right">
+               <img src="{{client.img}}"/>
+               <h2 style="font-size: 6vmin;">{{client.nom}}</h2>      
+            </div>
+
+             <div class="list">
+                <div class="item item-divider">
+                    Coordonnées postales
+                </div>
+               <label class="item item-input item-stacked-label">
+                 <span class="input-label">Adresse</span>
+                 <input type="text" ng-model="clientEdit.adresse" placeholder="{{clientEdit.adresse}}">
+               </label>
+               <label class="item item-input item-stacked-label">
+                 <span class="input-label">Ville</span>
+                 <input type="text" ng-model="clientEdit.ville" placeholder="{{clientEdit.ville}}">
+               </label>
+               <label class="item item-input item-stacked-label">
+                 <span class="input-label">Code postal</span>
+                 <input type="text" ng-model="clientEdit.CodePostal" placeholder="{{clientEdit.CodePostal}}">
+               </label>
+               <div class="item item-divider">
+                    Contact
+                </div>
+                <label class="item item-input item-stacked-label">
+                  <span class="input-label">Téléphone</span>
+                  <input type="text" ng-model="clientEdit.Tel" placeholder="{{clientEdit.Tel}}">
+                </label>
+                <label class="item item-input item-stacked-label">
+                  <span class="input-label">Email</span>
+                  <input type="text" ng-model="clientEdit.email" placeholder="{{clientEdit.email}}">
+                </label>
+             </div> 
+        </div>
+
+    </ion-content>
+</<div>

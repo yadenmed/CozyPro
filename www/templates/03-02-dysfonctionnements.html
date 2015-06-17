@@ -1,0 +1,36 @@
+<ion-view title="Les dysfonctionnements" >
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list wrapping-list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+            <ion-list>
+              <div>
+                <span ng-repeat="dys in dysfonctionnements">
+                <ion-item class="item-stable" ng-click="toggleGroup(dys)" ng-class="{active: isGroupShown(dys)}"> 
+                    <i class="icon" ng-class="isGroupShown(dys) ? 'ion-minus' : 'ion-plus'"></i>
+                  {{dys.symptome}}
+                </ion-item>
+                <a class="item item-icon-right item-accordion" ng-repeat="cause in dys.causes" ng-show="isGroupShown(dys)" ng-click="solutionPopup(dys.diagnostics)">
+                  {{cause}}
+                  <i class="icon ion-chevron-right"></i>
+                </a>
+                </span>
+
+              </div>
+            </ion-list>
+   
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

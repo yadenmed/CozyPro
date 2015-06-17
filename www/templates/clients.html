@@ -1,0 +1,36 @@
+
+<ion-view  title="Clients" hide-back-button="true">
+<ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+<div class="bar bar-subheader item-input-inset">
+    <label class="item-input-wrapper ">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input id="searchKey" type="search" placeholder="Rechercher" ng-model="searchKey.text" autocorrect="off" >
+        
+    </label>
+    <button ng-if="searchKey.text.length>0" class="button button-clear" ng-click="clear()">X</button>
+    <!-- <button class="button button-clear" ng-click="search()">Rechercher</button> -->
+</div>
+    <ion-content padding="true" scroll="false" class="has-header has-subheader responsive-md" fab-scroll-container>
+   
+    <ion-list>
+        <ion-item ng-repeat="client in clients | filter:searchKey.text" type="item-text-wrap" class="item-thumbnail-left" href="#/app/client/{{$index}}">
+            <img src="{{client.img}}"/>
+            <strong>{{client.nom}}</strong>
+            <h4>Prochaine intervention : </br>{{client.nextIntervention}}</h4>
+        </ion-item>
+        <ion-item class="item-icon-left" href="#">
+        <i class="icon ion-plus"></i>
+          <strong>Ajouter un nouveau client</strong>
+        </ion-item>
+    </ion-list>
+
+    </ion-content>
+    
+    
+   <fab ng-click="QRScan()">
+      <i class="icon icon-qrcode"></i>
+   </fab>
+    
+</ion-view>
