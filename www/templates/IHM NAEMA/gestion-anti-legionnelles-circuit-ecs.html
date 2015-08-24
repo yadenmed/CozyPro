@@ -1,0 +1,45 @@
+<ion-view title="Gestion Anti-légionnelles ECS">
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+<ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+           <label class="item item-input item-select">
+              <div class="input-label ">
+                Fonction anti-légionnelles
+              </div>
+              <select>
+                <option selected>Arrêt</option>
+                <option >Périodique</option>
+                <option >Jour fixe</option>
+              </select>
+            </label>
+            <a class="item item-text-wrap" ng-click="" >           
+              Périodicité
+              <span class="item-note">
+                    7 jours
+              </span>
+            </a>
+            <a class="item item-text-wrap" ng-click="" >           
+              Jour de fonctionnement
+              <span class="item-note">
+                    Samedi
+              </span>
+            </a>
+           
+            
+        </div>
+
+    </ion-content>
+
+</ion-view>

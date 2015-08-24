@@ -11,10 +11,10 @@
                <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
                <p>{{products[id].type.label}}</p>         
             </a>
-            <div class="list card " ng-repeat="step in quickStart" >
+            <div class="list card wrapping-list" ng-repeat="step in quickStart" >
 
-              <div class="item item-avatar" >
-                <img src="{{step.thumbnail}}">
+              <div class="item item-avatar item-text-wrap" >
+                <!-- <img src="{{step.thumbnail}}"> -->
                 <h2 style="font-size: 4vmin;">{{step.label}}</h2>
                 <p>{{step.description.label}}</p>
               </div>

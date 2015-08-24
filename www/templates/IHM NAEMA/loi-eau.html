@@ -1,0 +1,85 @@
+<ion-view title="Loi d'eau">
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+<ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+            
+            
+            <a class="item item-text-wrap" ng-click="" >
+            
+              Influence température ambiante
+              <span class="item-note">
+                    50%
+              </span>
+            </a>
+            <a class="item item-text-wrap" ng-click=""> 
+              Température eau max
+              <span class="item-note">
+                   50°C
+              </span>
+            </a>
+            <a class="item item-text-wrap" ng-click="" >
+            
+              Température eau min
+              <span class="item-note">
+                    17°C
+              </span>
+            </a>
+            
+             <span class="item item-text-wrap" ng-click="" >
+             
+               Loi d'eau
+             
+             <div class="row responsive-md">
+                <canvas  linechart options="chartOptions" data="chart" class="card col col-50" width="500" height="300"></canvas>
+                 <div class="card col col-30">
+                   <div class="row responsive-md">
+                     
+                     <div class=" col col-30 horizontal-div">
+                       <div class="row height-100">
+                         1,25
+                       </div>
+                       <div class="row height-100">
+                         0,75
+                       </div>
+                       <div class="row">
+                         0,25
+                       </div>
+                     </div>
+
+                     <div class="col col-10">
+                       <input type="range" id="loideau" ng-model="chart.datasets[0].data[1]" min="0" max="4">
+                     </div>
+                     
+                     <div class=" col col-30 horizontal-div">
+                       <div class="row height-100">
+                         Radiateur basse température
+                       </div>
+                       <div class="row height-100">
+                         
+                       </div>
+                       <div class="row">
+                         Plancher chauffant
+                       </div>
+                     </div>
+                   </div>    
+                 </div>
+                 
+             </div>
+             </span>
+        </div>
+
+    </ion-content>
+
+</ion-view>

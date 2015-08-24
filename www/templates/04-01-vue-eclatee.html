@@ -1,4 +1,4 @@
-<ion-view title="Vue éclatée" >
+<ion-view title="Identification des pièces détachées" >
 <!-- <ion-side-menus enable-menu-with-back-views="true"> -->
 
 
@@ -28,11 +28,14 @@
                 <strong class="col col-25">Numéro</strong>
                 <strong class="col" >Nom de la pièce</strong>
                 <strong class="col col-20">Référence</strong>
+                <strong class="col col-10"></strong>
             </ion-item>
             <ion-item ng-repeat="piece in pieces | filter:searchKey.text" class="row">
                 <span class="col col-25">{{piece.id}}</span>
                 <span class="col item-text-wrap" >{{piece.label}}</span>
                 <span class="col col-20">{{piece.ref}}</span>
+                <button class="col col-10 button button-icon icon ion-plus balanced" ng-if="!piece.panier" ng-click="piece.panier=!piece.panier"></button>
+                <button class="col col-10 button button-icon icon ion-close assertive" ng-if="piece.panier" ng-click="piece.panier=!piece.panier"></button>
             </ion-item>
         </ion-list>
 

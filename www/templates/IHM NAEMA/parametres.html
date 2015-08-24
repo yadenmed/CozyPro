@@ -1,0 +1,43 @@
+<ion-view title="Paramètres">
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+<ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+            
+            <a class="item item-icon-left" ng-click="" href="#">
+            <i class="icon ion-ios-clock"></i>
+              Date et heure
+             <span class="item-note">
+                   {{1440075794000 | date:'dd/MM/yy HH:mm'}}
+             </span>
+            </a>
+
+            <a class="item item-icon-left" ng-click="" href="#">
+            <i class="icon ion-ios-flag"></i>
+              Langue
+             <span class="item-note">
+                   Français
+             </span>
+            </a>
+            <a class="item item-icon-left item-icon-right" ng-click="" href="#">
+            <i class="icon ion-wifi"></i>
+              Connectivités
+              <i class="icon ion-chevron-right"></i>
+            </a>
+           
+        </div>
+
+    </ion-content>
+
+</ion-view>

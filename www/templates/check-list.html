@@ -1,0 +1,63 @@
+<ion-view title="Checklist" >
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list wrapping-list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+            <span ng-repeat="check in checklist">
+              
+            
+
+            <span class="button button-block button-darks button-energized" style="margin:0;" ng-if="check.caution"> 
+               <i class="icon ion-alert-circled"></i> <b> {{check.caution}}</b>   
+            </span>
+
+            <div class="list card " ng-repeat="step in check.steps" >
+
+              <div class="item icon-left" >
+                <h2 style="font-size: 4vmin;">Etape {{$index+1}}: {{step.title}}</h2>
+                
+              </div>
+
+              <ion-slide-box show-pager="true" style="text-align: center;">   
+             
+                <ion-slide ng-repeat="image in step.images" >
+                    <img src="{{image}}">
+                </ion-slide>
+            
+              </ion-slide-box>
+
+              <div class="item item-body" ng-if="step.content.length>0">
+                
+                <center ng-repeat="content in step.content">
+                  {{content}}
+                </center>
+                
+              </div>
+
+              <!-- <div class="row">
+                <a class="button icon-left ion-chevron-left button-clear button-dark col" >
+                  Précédent
+                </a>
+                <a class="button icon-right ion-chevron-right button-clear button-dark col" >
+                  Suivant
+                </a>
+              </div> -->
+
+            </div>
+           </span> 
+   
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

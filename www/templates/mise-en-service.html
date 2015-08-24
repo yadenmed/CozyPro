@@ -2,7 +2,7 @@
 <!-- <ion-side-menus enable-menu-with-back-views="true"> -->
 
 
-    <ion-content class="has-header" has-bouncing="false" scroll="false">
+    <ion-content class="has-header" has-bouncing="false">
 
     <div class="card" ng-if="step==0">
       <center class="item item-divider">
@@ -44,15 +44,77 @@
     </div>
 
     <div class="list" ng-if="step==4">
+    <div class="list">
       
         <div class="item item-thumbnail-left item-button-right">
            <img src="{{products[1].image}}"/>
            <h2 style="font-size: 6vmin;">{{products[1].name}}</h2>
-           <p>{{products[1].type.label}}</p>         
-        </div>
-          
-    </div>
+           <p>{{products[1].type.label}}</p>
+           <a class="button ion-star button-dark" ng-click="favConfig.show()"></a>         
+        </div>       
+    
+    <a class="item item-text-wrap" ng-click="" >
+    
+      Influence température ambiante
+      <span class="item-note">
+            50%
+      </span>
+    </a>
+    <a class="item item-text-wrap" ng-click=""> 
+      Température eau max
+      <span class="item-note">
+           50°C
+      </span>
+    </a>
+    <a class="item item-text-wrap" ng-click="" >
+    
+      Température eau min
+      <span class="item-note">
+            17°C
+      </span>
+    </a>
+    <span class="item item-text-wrap" ng-click="" >
+    
+      Loi d'eau
+    
+    <div class="row responsive-md">
+       <canvas  linechart options="chartOptions" data="chart" class="card col col-50" width="500" height="300"></canvas>
+        <div class="card col col-30">
+          <div class="row responsive-md">
+            
+            <div class=" col col-30 horizontal-div">
+              <div class="row height-100">
+                1,25
+              </div>
+              <div class="row height-100">
+                0,75
+              </div>
+              <div class="row">
+                0,25
+              </div>
+            </div>
 
+            <div class="col col-10">
+              <input type="range" id="loideau" ng-model="chart.datasets[0].data[1]" min="0" max="4">
+            </div>
+            
+            <div class=" col col-30 horizontal-div">
+              <div class="row height-100">
+                Radiateur basse température
+              </div>
+              <div class="row height-100">
+                
+              </div>
+              <div class="row">
+                Plancher chauffant
+              </div>
+            </div>
+          </div>    
+        </div>
+        
+    </div>
+    </span>
+<!-- </div> -->
     </ion-content>
 
 </ion-view>

@@ -1,0 +1,53 @@
+<ion-view title="MENU">
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+<ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+            
+            <a class="item item-icon-left item-icon-right" ng-click="" href="#/app/naema-configuration-circuits/{{urlId}}">
+            <i class="icon ion-ios-star"></i>
+              Configuration des circuits
+              <i class="icon ion-chevron-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" ng-click="" href="#/app/naema-configuration-generateur/{{urlId}}">
+            <i class="icon ion-ios-star"></i>
+              Configuration du générateur
+              <i class="icon ion-chevron-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" ng-click="" href="#/app/naema-modes-en-cours/{{urlId}}">
+            <i class="icon ion-ios-star"></i>
+              Modes en cours
+              <i class="icon ion-chevron-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" ng-click="" href="">
+            <i class="icon ion-ios-star-outline"></i>
+              Informations
+              <i class="icon ion-chevron-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" ng-click="" href="#/app/naema-fonctions-maintenance/{{urlId}}">
+            <i class="icon ion-ios-star"></i>
+              Fonctions de maintenance
+              <i class="icon ion-chevron-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" ng-click="" href="#/app/naema-parametres/{{urlId}}">
+            <i class="icon ion-ios-star"></i>
+              Paramètres
+              <i class="icon ion-chevron-right"></i>
+            </a>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

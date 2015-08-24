@@ -1,0 +1,39 @@
+<ion-view title="Programmation chauffage" >
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list wrapping-list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+            <ion-list>
+              <div>
+                <span ng-repeat="prog in progChauffage">
+                <ion-item class="item-stable" ng-click="toggleGroup(prog)" ng-class="{active: isGroupShown(prog)}"> 
+                    <i class="icon" ng-class="isGroupShown(prog) ? 'ion-minus' : 'ion-plus'"></i>
+                  {{prog.day}}
+                </ion-item>
+                <ion-scroll direction="x">
+                <center class="item item-accordion"ng-show="isGroupShown(prog)" >
+                  <img src="./img/prog/timeline.png">
+                  <img src="{{prog.slots}}">
+                  
+                </center>
+              </ion-scroll>
+                </span>
+
+              </div>
+            </ion-list>
+   
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

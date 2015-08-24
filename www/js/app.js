@@ -1,5 +1,5 @@
 
-var app =angular.module('QRCode', ['ionic', 'QRCode.controllers','fab-component','tabSlideBox','ionMdInput'])
+var app =angular.module('Cozypro', ['ionic', 'QRCode.controllers','fab-component','tabSlideBox','ionMdInput','angles'])
 
 .run(function($ionicPlatform,$cordovaBarcodeScanner,$state,$rootScope,$ionicPopup,$ionicPlatform,$ionicModal,$ionicHistory,$ionicLoading,ProductService,ClientService,$ionicSideMenuDelegate) {
 
@@ -21,11 +21,12 @@ $rootScope.hideMenu = function(){
   // Data
 $rootScope.clients =ClientService.getAllClients();
 $rootScope.products=ProductService.getAllProducts();
-$rootScope.productType=["Chauffages électriques","Chauffe-eau","Climatisation / Ventilation","Pompes à chaleur / Chaudières"];
+
+// $rootScope.productType=["Chauffages électriques","Chauffe-eau","Climatisation / Ventilation","Pompes à chaleur / Chaudières"];
   
-  $rootScope.currentEquipement={};
+  $rootScope.currentEquipement=$rootScope.products[1];
   $rootScope.currentErreur={};
-  $rootScope.urlId=0;
+  $rootScope.urlId=1;
   $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) {
 
           $rootScope.modalMenuChoice = $ionicModal;
@@ -60,7 +61,8 @@ $rootScope.productType=["Chauffages électriques","Chauffe-eau","Climatisation /
           if(imageData.text){
             $rootScope.currentEquipement = $rootScope.products[1];
             $rootScope.urlId = 1;
-            $rootScope.modalMenuChoice.show();
+            $state.go('app.maintenance-intervention',{id:1});
+            $rootScope.showMenu();
           }
            
         }, function(error) {
@@ -140,7 +142,56 @@ $rootScope.go = function(x){
  }
  
   })
+  .state('app.1ere-mise-en-service', {
+   url: "/1ere-mise-en-service/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/1ere-mise-en-service.html",
+       controller: '1ereMiseEnService'
+     }
+   }
    
+    })
+  .state('app.maintenance-intervention', {
+   url: "/maintenance-intervention/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/maintenance-intervention.html",
+       controller: 'MaintenanceIntervention'
+     }
+   }
+   
+    })
+  .state('app.support-doc', {
+   url: "/support-doc/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/support-doc.html",
+       controller: 'SupportDoc'
+     }
+   }
+   
+    })
+  .state('app.guide', {
+   url: "/guide/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/guide.html",
+       controller: 'Guide'
+     }
+   }
+   
+    })
+  .state('app.interface-produit', {
+   url: "/interface-produit/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/interface-produit.html",
+       controller: 'InterfaceProduit'
+     }
+   }
+   
+    })
 .state('app.theorie-formation', {
  url: "/theorie-formation/:id",
  views: {
@@ -160,16 +211,26 @@ $rootScope.go = function(x){
    }
  }
   })
-  .state('app.aide-diagnostic', {
- url: "/aide-diagnostic/:id",
+  .state('app.diagnostic', {
+ url: "/diagnostic/:id",
  views: {
    'menuContent': {
-     templateUrl: "templates/aide-diagnostic.html",
-     controller: 'AideDiagnostic'
+     templateUrl: "templates/diagnostic.html",
+     controller: 'Diagnostic'
    }
  }
  
   })
+   .state('app.panier', {
+  url: "/panier",
+  views: {
+    'menuContent': {
+      templateUrl: "templates/panier.html",
+      controller: 'Panier'
+    }
+  }
+  
+   })
   .state('app.pieces-accessoires', {
  url: "/pieces-accessoires/:id",
  views: {
@@ -219,31 +280,31 @@ $rootScope.go = function(x){
  }
  
   })
-.state('app.dysfonctionnements', {
- url: "/dysfonctionnements/:id",
+.state('app.tunnel-diagnostic', {
+ url: "/tunnel-diagnostic/:id",
  views: {
    'menuContent': {
-     templateUrl: "templates/03-02-dysfonctionnements.html",
+     templateUrl: "templates/tunnel-diagnostic.html",
      controller: 'AideDiagnostic'
    }
  }
  
   })
-.state('app.erreurs', {
- url: "/erreurs/:id",
+.state('app.codes-erreurs', {
+ url: "/codes-erreurs/:id",
  views: {
    'menuContent': {
-     templateUrl: "templates/03-01-assistant-erreurs.html",
+     templateUrl: "templates/codes-erreurs.html",
      controller: 'AideDiagnostic'
    }
  }
  
   })
-.state('app.quick-installation', {
- url: "/quick-installation/:id",
+.state('app.check-list', {
+ url: "/check-list/:id",
  views: {
    'menuContent': {
-     templateUrl: "templates/02-02-quick-installation.html",
+     templateUrl: "templates/check-list.html",
      controller: 'InstallationMiseEnService'
    }
  }
@@ -303,7 +364,179 @@ $rootScope.go = function(x){
        controller: 'miseEnService'
      }
    } 
-  });
+  })
+  .state('app.naema-menu', {
+   url: "/naema-menu/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/menu.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-configuration-circuits', {
+   url: "/naema-configuration-circuits/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/configuration-circuits.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-configuration-generateur', {
+   url: "/naema-configuration-generateur/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/configuration-generateur.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-modes-en-cours', {
+   url: "/naema-modes-en-cours/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/modes-en-cours.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-fonctions-maintenance', {
+   url: "/naema-fonctions-maintenance/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/fonctions-maintenance.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-parametres', {
+   url: "/naema-parametres/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/parametres.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-circuit-direct', {
+   url: "/naema-circuit-direct/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/circuit-direct.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-circuit-melange', {
+   url: "/naema-circuit-melange/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/circuit-melange.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-circuit-ecs', {
+   url: "/naema-circuit-ecs/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/circuit-ecs.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-purge-circuits', {
+   url: "/naema-purge-circuits/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/purge-circuits.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-test-entrees-sorties', {
+   url: "/naema-test-entrees-sorties/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/test-entrees-sorties.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-loi-eau', {
+   url: "/naema-loi-eau/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/loi-eau.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-temperature-consigne', {
+   url: "/naema-temperature-consigne/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/temperature-consigne.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-programmation-horaire-chauffage-zone1', {
+   url: "/naema-programmation-horaire-chauffage-zone1/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/programmation-horaire-chauffage-zone1.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-configuration-circuit-ecs', {
+   url: "/naema-configuration-circuit-ecs/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/configuration-circuit-ecs.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-programmation-circuit-ecs', {
+   url: "/naema-programmation-circuit-ecs/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/programmation-circuit-ecs.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-consignes-circuit-ecs', {
+   url: "/naema-consignes-circuit-ecs/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/consignes-circuit-ecs.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-gestion-anti-legionnelles-circuit-ecs', {
+   url: "/naema-gestion-anti-legionnelles-circuit-ecs/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/gestion-anti-legionnelles-circuit-ecs.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  .state('app.naema-reglage-combustion', {
+   url: "/naema-reglage-combustion/:id",
+   views: {
+     'menuContent': {
+       templateUrl: "templates/IHM NAEMA/reglage-combustion.html",
+       controller: 'IHMNAEMA'
+     }
+   } 
+  })
+  ;
 
   
   $urlRouterProvider.otherwise('/'); 

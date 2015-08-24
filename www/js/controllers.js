@@ -141,10 +141,39 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
   };
 
 })
-.controller('InstallationMiseEnService',function($scope,$rootScope,$stateParams){
+.controller('1ereMiseEnService',function($scope,$rootScope,$stateParams,$ionicScrollDelegate){
+ 
+ $scope.id=$stateParams.id;
+ 
+ $scope.caracteristiques = $rootScope.products[$scope.id].caracteristiques;
+ $scope.performances = $rootScope.products[$scope.id].performances;
+
+})
+.controller('MaintenanceIntervention',function($scope,$rootScope,$stateParams,$ionicScrollDelegate){
+ 
+ $scope.id=$stateParams.id;
+ 
+
+})
+.controller('SupportDoc',function($scope,$rootScope,$stateParams,$ionicScrollDelegate){
+ 
+ $scope.id=$stateParams.id;
+ 
+ 
+
+
+})
+.controller('Guide',function($scope,$rootScope,$stateParams,$ionicScrollDelegate){
+ 
+ $scope.id=$stateParams.id;
+ 
+})
+.controller('InstallationMiseEnService',function($scope,$rootScope,$stateParams,$ionicModal){
   $scope.id=$stateParams.id;
-  $scope.quickInstallation=$rootScope.products[$scope.id]["quick installation"];
-  $scope.steps = $scope.quickInstallation.steps;
+  $scope.checklist=$rootScope.products[$scope.id].checklist;
+
+  
+  
 })
 .controller('AideDiagnostic',function($scope,$rootScope,$stateParams,$ionicPopup,$ionicModal){
   $scope.id=$stateParams.id;
@@ -215,6 +244,32 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
        }
   
 })
+.controller('Diagnostic',function($scope,$rootScope,$stateParams,$ionicPopup,$ionicModal){
+  $scope.id=$stateParams.id;
+
+  $scope.dysfonctionnements = $rootScope.products[$scope.id].dysfonctionnements;
+  $scope.erreurs = $rootScope.products[$scope.id].erreurs;
+
+
+  
+})
+.controller('Panier',function($scope,$rootScope,$stateParams,$ionicPopup,$ionicModal){
+  
+    $scope.searchKey={text:''};
+    $scope.clear = function(){
+      $scope.searchKey.text = '';
+      
+    }
+
+})
+.controller('InterfaceProduit',function($scope,$rootScope,$stateParams,$ionicPopup,$ionicModal){
+  $scope.id=$stateParams.id;
+
+  
+
+
+  
+})
 .controller('AssistantErreurs',function($scope,$rootScope,$stateParams){
 
   $scope.yes=function(){
@@ -275,7 +330,7 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
   
 
 })
-.controller('miseEnService',function($scope,$rootScope,$stateParams,$timeout,$ionicPopup){
+.controller('miseEnService',function($scope,$rootScope,$stateParams,$timeout,$ionicPopup,$ionicModal){
   
   $scope.step=0;
 
@@ -317,5 +372,86 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
       $scope.message ="Paramétrage";
     },2000);
   }
+
+  $scope.chart = {
+      labels : [1, 2],
+      datasets : [
+          {
+              fillColor : "rgba(151,187,205,0)",
+              strokeColor : "#e67e22",
+              pointColor : "rgba(151,187,205,0)",
+              pointStrokeColor : "#e67e22",
+              data : [0,5]
+              
+          }
+      ]
+  };
+
+  $scope.chartOptions = {
+          animation: false,
+          scaleOverride: true,
+          scaleStepWidth: 1,
+          scaleSteps : 5,
+          scaleStartValue : 0,
+          scaleBeginAtZero: true,
+          showScale: true,
+          showTooltips: false        
+      };
+
+      $ionicModal.fromTemplateUrl('templates/config-favoris.html', function($ionicModal) {
+              $scope.favConfig = $ionicModal;
+          }, {
+              // Use our scope for the scope of the modal to keep it simple
+              scope: $scope,
+              // The animation we want to use for the modal entrance
+              animation: 'slide-in-up'
+          });
+
 })
-;
+.controller('IHMNAEMA',function($scope,$rootScope,$stateParams){
+ 
+  $scope.id=$stateParams.id;
+
+  //Prog
+    $scope.progChauffage = $rootScope.products[$scope.id]["prog-chauffage"];
+    
+
+    //Acoordion list
+   $scope.toggleGroup = function(group) {
+      if ($scope.isGroupShown(group)) {
+        $scope.shownGroup = null;
+      } else {
+        $scope.shownGroup = group;
+      }
+    };
+    $scope.isGroupShown = function(group) {
+      return $scope.shownGroup === group;
+    };
+    
+    //Chart loi d'eau
+    $scope.chart = {
+        labels : [1, 2],
+        datasets : [
+            {
+                fillColor : "rgba(151,187,205,0)",
+                strokeColor : "#e67e22",
+                pointColor : "rgba(151,187,205,0)",
+                pointStrokeColor : "#e67e22",
+                data : [0,5]
+                
+            }
+        ]
+    };
+
+    $scope.chartOptions = {
+            animation: false,
+            scaleOverride: true,
+            scaleStepWidth: 1,
+            scaleSteps : 5,
+            scaleStartValue : 0,
+            scaleBeginAtZero: true,
+            showScale: true,
+            showTooltips: false        
+        };
+  
+});

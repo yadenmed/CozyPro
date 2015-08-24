@@ -1,0 +1,49 @@
+<ion-view title="Configuration circuit ECS">
+<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
+
+<ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+</ion-nav-buttons>
+    <ion-content has-header="true" has-bouncing="true">
+
+        <div class="list">
+          
+            <a class="item item-thumbnail-left">
+               <img src="{{products[id].image}}"/>
+               <h2 style="font-size: 6vmin;">{{products[id].name}}</h2>
+               <p>{{products[id].type.label}}</p>         
+            </a>
+
+           <label class="item item-input item-select">
+              <div class="input-label ">
+                Charge température de confort
+              </div>
+              <select>
+                <option selected>Permanente</option>
+                <option >Prog horaire ECS</option>
+              </select>
+            </label>
+           <li class="item item-toggle">
+             Pompe de recirculation
+             <label class="toggle toggle-calm">
+               <input type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+           </li>
+           <label class="item item-input item-select">
+              <div class="input-label ">
+                Entrée Modem
+              </div>
+              <select>
+                <option selected>Pas d'ECS</option>
+                
+              </select>
+          </label>
+            
+        </div>
+
+    </ion-content>
+
+</ion-view>

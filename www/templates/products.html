@@ -11,7 +11,7 @@
             display:none;
         }
 </style>
-<ion-view  title="Produits" hide-back-button="true" cache-view="false">
+<ion-view  title="Accueil" hide-back-button="true" cache-view="false">
 <ion-nav-buttons side="left">
    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 </ion-nav-buttons>
@@ -32,10 +32,10 @@
                  <div class="tsb-ic-wrp ">
                      <ion-scroll direction="x" class="tsb-hscroll">
                          <a href="javascript:;" >Tout</a>
-                         <a href="javascript:;">Chauffages électriques</a>
-                         <a href="javascript:;" >Chauffe-eau</a>
-                         <a href="javascript:;">Climatisation / Ventilation</a>
-                         <a href="javascript:;" >Pompes à chaleur / Chaudières</a>
+                         <a href="javascript:;">Chaudière sol fioul</a>
+                         <a href="javascript:;" >Chaudière sol Gaz</a>
+                         <a href="javascript:;">Pompe à chaleur</a>
+                         <a href="javascript:;" >Chaudière murale</a>
                      </ion-scroll>
                  </div>
              </div>
@@ -43,11 +43,16 @@
                  <ion-slide>
                 <ion-scroll style="height:92%">  
                 <div ng-repeat = "product in products | filter:{name:searchKey.text}" class="card col grid-products">
-                    <a class="item item-avatar-left " href="#" ng-click="showModalMenuChoice({{products.indexOf(product)}})">
-                        <img src="{{product.image}}">
-                        <h3>{{product.name}}</h3>
-                       <p>{{product.type.label}}</p>
+                    <a class="item item-avatar-left" href="#/app/maintenance-intervention/{{products.indexOf(product)}}" ng-click="showMenu()" ng-if="product.local">
+                        <img src="{{product.image}}" >
+                        <h3>{{product.name }}</h3>
+                        <p>{{product.type.label}}</p>
                     </a>
+                     <a class="item item-avatar-left" ng-if="!product.local" >
+                         <img src="{{product.image}}">
+                         <h3>{{product.name }}</h3>
+                         <p>{{product.type.label}}</p>
+                     </a>
                    <div class="item tabs tabs-secondary tabs-icon-left">
                        <a class="tab-item positive" ng-if="!product.local">
                          <i class="icon ion-android-download"></i>
@@ -66,14 +71,19 @@
                 </ion-scroll> 
                 </ion-slide>
                   <ion-slide>
-                 <ion-scroll style="height:95%">
+                 <ion-scroll style="height:95%; margin-right:3%;">
                      
                         <div ng-repeat = "product in products | filter:{name:searchKey.text} | filter:{type:{id:0}} " class="card col grid-products" >
-                            <a class="item item-avatar-left" href="#" ng-click="showModalMenuChoice({{products.indexOf(product)}})">
-                                <img src="{{product.image}}">
+                            <a class="item item-avatar-left" href="#/app/maintenance-intervention/{{products.indexOf(product)}}" ng-click="showMenu()" ng-if="product.local">
+                                <img src="{{product.image}}" >
                                 <h3>{{product.name }}</h3>
                                 <p>{{product.type.label}}</p>
                             </a>
+                             <a class="item item-avatar-left" ng-if="!product.local" >
+                                 <img src="{{product.image}}">
+                                 <h3>{{product.name }}</h3>
+                                 <p>{{product.type.label}}</p>
+                             </a>
                             <div class="item tabs tabs-secondary tabs-icon-left">
                                 <a class="tab-item positive" ng-if="!product.local">
                                   <i class="icon ion-android-download"></i>
@@ -95,11 +105,16 @@
                  <ion-scroll style="height:95%">
                     
                         <div ng-repeat = "product in products | filter:{name:searchKey.text} | filter:{type:{id:1}} " class="card col grid-products">
-                            <a class="item item-avatar-left" href="#" ng-click="showModalMenuChoice({{products.indexOf(product)}})">
-                                <img src="{{product.image}}">
+                            <a class="item item-avatar-left" href="#/app/maintenance-intervention/{{products.indexOf(product)}}" ng-click="showMenu()" ng-if="product.local">
+                                <img src="{{product.image}}" >
                                 <h3>{{product.name }}</h3>
                                 <p>{{product.type.label}}</p>
                             </a>
+                             <a class="item item-avatar-left" ng-if="!product.local" >
+                                 <img src="{{product.image}}">
+                                 <h3>{{product.name }}</h3>
+                                 <p>{{product.type.label}}</p>
+                             </a>
                             <div class="item tabs tabs-secondary tabs-icon-left">
                                 <a class="tab-item positive" ng-if="!product.local">
                                   <i class="icon ion-android-download"></i>
@@ -121,11 +136,16 @@
                  <ion-scroll style="height:95%">
                     
                         <div ng-repeat = "product in products | filter:{name:searchKey.text} | filter:{type:{id:2}} " class="card col grid-products">
-                            <a class="item item-avatar-left" href="#" ng-click="showModalMenuChoice({{products.indexOf(product)}})">
-                                <img src="{{product.image}}">
+                            <a class="item item-avatar-left" href="#/app/maintenance-intervention/{{products.indexOf(product)}}" ng-click="showMenu()" ng-if="product.local">
+                                <img src="{{product.image}}" >
                                 <h3>{{product.name }}</h3>
                                 <p>{{product.type.label}}</p>
                             </a>
+                             <a class="item item-avatar-left" ng-if="!product.local" >
+                                 <img src="{{product.image}}">
+                                 <h3>{{product.name }}</h3>
+                                 <p>{{product.type.label}}</p>
+                             </a>
                             <div class="item tabs tabs-secondary tabs-icon-left">
                                 <a class="tab-item positive" ng-if="!product.local">
                                   <i class="icon ion-android-download"></i>
@@ -147,7 +167,13 @@
                  <ion-scroll style="height:95%">
                     
                         <div ng-repeat = "product in products | filter:{name:searchKey.text} | filter:{type:{id:3}} " class="card col grid-products">
-                            <a class="item item-avatar-left" href="#" ng-click="showModalMenuChoice({{products.indexOf(product)}})">
+                           
+                           <a class="item item-avatar-left" href="#/app/maintenance-intervention/{{products.indexOf(product)}}" ng-click="showMenu()" ng-if="product.local">
+                               <img src="{{product.image}}" >
+                               <h3>{{product.name }}</h3>
+                               <p>{{product.type.label}}</p>
+                           </a>
+                            <a class="item item-avatar-left" ng-if="!product.local" >
                                 <img src="{{product.image}}">
                                 <h3>{{product.name }}</h3>
                                 <p>{{product.type.label}}</p>
@@ -177,8 +203,10 @@
     </ion-content>
     
     
-   <fab ng-click="QRScan()">
+   <fab class="tooltips" ng-click="QRScan()">
+       <span>Scanner un QR Code</span>
       <i class="icon icon-qrcode"></i>
+
    </fab>
     
 </ion-view>

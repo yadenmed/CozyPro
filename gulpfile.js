@@ -6,15 +6,23 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var plumber = require('gulp-plumber');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss','./scss/style.scss']
 };
 
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
+  gulp.src(['./scss/ionic.scss','./scss/style.scss'])
+    .pipe(plumber({
+        errorHandler: function (err) {
+            console.log(err); 
+            this.emit('end');
+        }
+    }))
+    .pipe(concat('ionic.app.scss'))
     .pipe(sass())
     .pipe(gulp.dest('./www/css/'))
     .pipe(minifyCss({
