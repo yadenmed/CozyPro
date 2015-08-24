@@ -1,5 +1,5 @@
 {
-  "name": "POC APP SERVICES",
+  "name": "POC-APP-SERVICES",
   "version": "1.0.0",
   "description": "APP SERVICES",
   "dependencies": {
@@ -16,7 +16,12 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "org.apache.cordova.splashscreen"
+    "org.apache.cordova.splashscreen",
+    "org.apache.cordova.device",
+    "org.apache.cordova.console",
+    "com.phonegap.plugins.barcodescanner",
+    "com.ionic.keyboard"
+
   ],
   "cordovaPlatforms": []
 }
