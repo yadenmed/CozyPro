@@ -1,7 +1,7 @@
 
 var app =angular.module('Cozypro', ['ionic', 'QRCode.controllers','fab-component','tabSlideBox','ionMdInput','angles'])
 
-.run(function($ionicPlatform,$cordovaBarcodeScanner,$state,$rootScope,$ionicPopup,$ionicPlatform,$ionicModal,$ionicHistory,$ionicLoading,ProductService,ClientService,$ionicSideMenuDelegate, $cordovaInAppBrowser) {
+.run(function($ionicPlatform,$cordovaBarcodeScanner,$state,$rootScope,$ionicPopup,$ionicPlatform,$ionicModal,$ionicPopup,$ionicHistory,$ionicLoading,ProductService,ClientService,$ionicSideMenuDelegate, $cordovaInAppBrowser) {
 
 $rootScope.showMenu = function(){
     $rootScope.menu=true;
@@ -73,6 +73,28 @@ $rootScope.products=ProductService.getAllProducts();
 $rootScope.go = function(x){
   $state.go(x);
 }
+
+$rootScope.editInput = function(model,inputName,type){
+  
+  $ionicPopup.show({
+      template: '<input type='+type+' ng-model='+model+' autofocus>',
+      title: '<b>'+inputName+'</b>',
+      subTitle: 'Veuillez modifier la valeur ',
+      scope: $rootScope,
+      
+      buttons: [
+        
+        {
+          text: 'OK',
+          type: 'button-stable'
+        
+        }
+      ],
+      onTap: function(e){
+        alert('ok');
+        // return true;
+      }
+    });}
 })
 
 .config(function($stateProvider, $urlRouterProvider, $compileProvider,$ionicConfigProvider) {

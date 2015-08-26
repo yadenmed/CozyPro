@@ -16,24 +16,24 @@
 
             
             
-            <a class="item item-text-wrap" ng-click="" >
+            <a class="item item-text-wrap" ng-click="editInput('tempAmbiante','Influence température ambiante','number')" >
             
               Influence température ambiante
               <span class="item-note">
-                    50%
+                    {{tempAmbiante}}%
               </span>
             </a>
-            <a class="item item-text-wrap" ng-click=""> 
+            <a class="item item-text-wrap" ng-click="editInput('tempEauMax','Température eau min','number')"> 
               Température eau max
               <span class="item-note">
-                   50°C
+                   {{tempEauMax}}°C
               </span>
             </a>
-            <a class="item item-text-wrap" ng-click="" >
+            <a class="item item-text-wrap" ng-click="editInput('tempEauMin','Température eau min','number')" >
             
               Température eau min
               <span class="item-note">
-                    17°C
+                    {{tempEauMin}}°C
               </span>
             </a>
             

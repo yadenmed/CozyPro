@@ -458,6 +458,9 @@ $interval(function(){ $scope.loadProducts = true;}, 1000);
     };
     
     //Chart loi d'eau
+    $rootScope.tempAmbiante=50;
+    $rootScope.tempEauMax=50;
+    $rootScope.tempEauMin=17;
     $scope.chart = {
         labels : [1, 2],
         datasets : [
