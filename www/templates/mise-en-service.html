@@ -1,120 +1,131 @@
-<ion-view title="Mise en service" >
-<!-- <ion-side-menus enable-menu-with-back-views="true"> -->
-
+<ion-view title="Mise en service">
+    <!-- <ion-side-menus enable-menu-with-back-views="true"> -->
 
     <ion-content class="has-header" has-bouncing="false">
 
-    <div class="card" ng-if="step==0">
-      <center class="item item-divider">
-        Branchement du Pass Bluetooth
-      </center>
-      <center class="item item-text-wrap">
-        {{message}}
-      </center>
-      <center class="item item-body">
-          <img  src="img/products/indisponible.jpg">
-      </center>
-      <div class="row">
-        <button class="button button-large button-balanced col-50 col-offset-25" ng-click="startMiseEnService()"> Commencer</button>
-      </div>
-    </div>
-      
-      <div class="row row-center" ng-if="step==1 || step==2">
-        
-        <center class="col col-center" style="margin:25%;">
-          <p>{{message}}</p>
-          <ion-spinner icon="ripple" class="spinner-calm"></ion-spinner>
-        </center>
-      </div>
-        
-  
-    <div class="card" ng-if="step==3">
-      <center class="item item-divider">
-        Vérifications hydrauliques 
-      </center>
-      <center class="item item-text-wrap">
-        {{message}}
-      </center>
-      <center class="item item-body">
-          <img  src="img/products/indisponible.jpg">
-      </center>
-      <div class="row">
-        <button class="button button-large button-balanced col-50 col-offset-25" ng-click="nextStep()"> Suivant</button>
-      </div>
-    </div>
-
-    <div class="list" ng-if="step==4">
-    <div class="list">
-      
-        <div class="item item-thumbnail-left item-button-right">
-           <img src="{{products[1].image}}"/>
-           <h2 style="font-size: 6vmin;">{{products[1].name}}</h2>
-           <p>{{products[1].type.label}}</p>
-           <a class="button ion-star button-dark" ng-click="favConfig.show()"></a>         
-        </div>       
-    
-    <a class="item item-text-wrap" ng-click="" >
-    
-      Influence température ambiante
-      <span class="item-note">
-            50%
-      </span>
-    </a>
-    <a class="item item-text-wrap" ng-click=""> 
-      Température eau max
-      <span class="item-note">
-           50°C
-      </span>
-    </a>
-    <a class="item item-text-wrap" ng-click="" >
-    
-      Température eau min
-      <span class="item-note">
-            17°C
-      </span>
-    </a>
-    <span class="item item-text-wrap" ng-click="" >
-    
-      Loi d'eau
-    
-    <div class="row responsive-md">
-       <canvas  linechart options="chartOptions" data="chart" class="card col col-50" width="500" height="300"></canvas>
-        <div class="card col col-30">
-          <div class="row responsive-md">
-            
-            <div class=" col col-30 horizontal-div">
-              <div class="row height-100">
-                1,25
-              </div>
-              <div class="row height-100">
-                0,75
-              </div>
-              <div class="row">
-                0,25
-              </div>
+        <div class="card" ng-if="step==0">
+            <center class="item item-divider">
+                {{products[1].name}}
+            </center>
+            <center class="item item-text-wrap">
+                {{message}}
+            </center>
+            <center class="item item-body">
+                <img src="img/products/indisponible.jpg">
+            </center>
+            <div class="row">
+                <button class="button button-large button-balanced col-50 col-offset-25" ng-click="startScan()">Commencer</button>
             </div>
-
-            <div class="col col-10">
-              <input type="range" id="loideau" ng-model="chart.datasets[0].data[1]" min="0" max="4">
-            </div>
-            
-            <div class=" col col-30 horizontal-div">
-              <div class="row height-100">
-                Radiateur basse température
-              </div>
-              <div class="row height-100">
-                
-              </div>
-              <div class="row">
-                Plancher chauffant
-              </div>
-            </div>
-          </div>    
         </div>
-        
-    </div>
-    </span>
-<!-- </div> -->
+
+        <div class="card" ng-if="step==0.5">
+            <div class="item item-divider">Appareils disponibles</div>
+            <div class="item item-body">
+                <div>
+                    <div>
+                        <ion-item ng-repeat="device in bleDevices" ng-click="connect(device.id)">
+                            <h2>{{device.name}}</h2>
+                        </ion-item>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-center" ng-if="step==1 || step==2">
+            <center class="col col-center" style="margin:25%;">
+                <p>{{message}}</p>
+                <ion-spinner icon="ripple" class="spinner-calm"></ion-spinner>
+            </center>
+        </div>
+
+
+        <div class="card" ng-if="step==3">
+            <center class="item item-divider">
+                Vérifications hydrauliques
+            </center>
+            <center class="item item-text-wrap">
+                {{message}}
+            </center>
+            <center class="item item-body">
+                <img src="img/products/indisponible.jpg">
+            </center>
+            <div class="row">
+                <button class="button button-large button-balanced col-50 col-offset-25" ng-click="nextStep()"> Suivant</button>
+            </div>
+        </div>
+
+        <div class="list" ng-if="step==4">
+            <div class="list">
+
+                <div class="item item-thumbnail-left item-button-right">
+                    <img src="{{products[1].image}}" />
+                    <h2 style="font-size: 6vmin;">{{products[1].name}}</h2>
+                    <p>{{products[1].type.label}}</p>
+                    <a class="button ion-star button-dark" ng-click="favConfig.show()"></a>
+                </div>
+
+                <a class="item item-text-wrap" ng-click="">
+
+                    Influence température ambiante
+                    <span class="item-note">
+                        50%
+                    </span>
+                </a>
+                <a class="item item-text-wrap" ng-click="">
+                    Température eau max
+                    <span class="item-note">
+                        50°C
+                    </span>
+                </a>
+                <a class="item item-text-wrap" ng-click="">
+
+                    Température eau min
+                    <span class="item-note">
+                        17°C
+                    </span>
+                </a>
+                <span class="item item-text-wrap" ng-click="">
+
+                    Loi d'eau
+
+                    <div class="row responsive-md">
+                        <canvas linechart options="chartOptions" data="chart" class="card col col-50" width="500" height="300"></canvas>
+                        <div class="card col col-30">
+                            <div class="row responsive-md">
+
+                                <div class=" col col-30 horizontal-div">
+                                    <div class="row height-100">
+                                        1,25
+                                    </div>
+                                    <div class="row height-100">
+                                        0,75
+                                    </div>
+                                    <div class="row">
+                                        0,25
+                                    </div>
+                                </div>
+
+                                <div class="col col-10">
+                                    <input type="range" id="loideau" ng-model="chart.datasets[0].data[1]" min="0" max="4">
+                                </div>
+
+                                <div class=" col col-30 horizontal-div">
+                                    <div class="row height-100">
+                                        Radiateur basse température
+                                    </div>
+                                    <div class="row height-100">
+
+                                    </div>
+                                    <div class="row">
+                                        Plancher chauffant
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </span>
+                <!-- </div> -->
     </ion-content>
 
 </ion-view>

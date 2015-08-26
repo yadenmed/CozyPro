@@ -15,18 +15,15 @@
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
-  "cordovaPlugins": [
-    "org.apache.cordova.splashscreen",
-    "org.apache.cordova.device",
-    "org.apache.cordova.console",
-    "com.phonegap.plugins.barcodescanner",
-    "com.ionic.keyboard"
-  ],
   "cordovaPlatforms": [
-    {
-      "platform": "android",
-      "version": "",
-      "locator": "android"
-    }
+   
+  ],
+  "cordovaPlugins": [
+    "org.apache.cordova.splashscreen@1.0.0",
+    "org.apache.cordova.device@0.3.0",
+    "org.apache.cordova.console@0.2.13",
+    "com.phonegap.plugins.barcodescanner@4.0.1",
+    "com.ionic.keyboard@1.0.4",
+    "com.megster.cordova.ble@0.1.9"
   ]
 }

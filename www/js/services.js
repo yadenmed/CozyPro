@@ -1021,3 +1021,58 @@ app.factory('ClientService', function() {
 
  return clients;
 });
+
+app.factory('BleDevicesService', function () {
+
+    var devices = [];
+
+    return {
+        all: function () {
+            return devices;
+        },
+        remove: function (device) {
+            devices.splice(devices.indexOf(device), 1);
+        },
+        get: function (deviceID) {
+            for (var i = 0; i < devices.length; i++) {
+                if (devices[i].id === deviceID) {
+                    return devices[i];
+                }
+            }
+            return null;
+        },
+        insert: function (device) {
+            devices.push(device);
+        },
+        clear: function () {
+            while (devices.length > 0) {
+                devices.pop();
+            }
+        }
+    };
+})
+
+app.factory('PassDeviceService', function () {
+
+    var device;
+
+    var MLDP = {
+        service: "00035B03-58e6-07dd-021a-08123a000300",
+        characteristic: "00035B03-58e6-07dd-021a-08123a000301"
+    };
+
+    return {
+        get: function () {
+            return device;
+        },
+        getMLDP: function () {
+            return MLDP;
+        },
+        insert: function (dev) {
+            device = dev;
+        },
+        clear: function () {
+            device = null;
+        }
+    };
+});
