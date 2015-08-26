@@ -742,6 +742,29 @@ app.factory('ProductService', function() {
       "disponibilite":"Du lundi au jeudi de 8h à 12h30 et de 13h30 à 18h. Le vendredi, de 8h à 12h30 et de 13h30 à 16h30.",
       "site":"www.atlantic-ventilation.fr"
     },
+    "contacts":[
+   {
+      "title":"Pièces détachées : Ref. / Prix Délai",
+      "details":"",
+      "site":"atlantic.plateforme-services.com",
+      "tel":"03 51 42 70 42",
+      "free":true
+   },
+   {
+      "title":"Après-Vente",
+      "details":"Assistance technique",
+      "site":"",
+      "tel":"03 51 42 70 42",
+      "free":false
+   },
+   {
+      "title":"Passer une commande sous garantie",
+      "details":"Elements nécéssaires : n° de série, date de MES, nom du chantier, ref. pièce",
+      "site":"atlantic.plateforme-services.com",
+      "tel":"03 28 50 21 94",
+      "free":true
+   }
+],
     "pieces" :
 
     [

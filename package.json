@@ -21,7 +21,12 @@
     "org.apache.cordova.console",
     "com.phonegap.plugins.barcodescanner",
     "com.ionic.keyboard"
-
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    {
+      "platform": "android",
+      "version": "",
+      "locator": "android"
+    }
+  ]
 }

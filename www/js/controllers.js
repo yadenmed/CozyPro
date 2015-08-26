@@ -90,8 +90,11 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
    }
 
 })
-.controller('ProductsCtrl', function($scope,$rootScope,$ionicModal,$state,$timeout) {
+.controller('ProductsCtrl', function($scope,$rootScope,$ionicModal,$state,$interval) {
 
+$scope.loadProducts= false;
+
+$interval(function(){ $scope.loadProducts = true;}, 1000);
 
 	$scope.searchKey={text:''};
   $scope.clear = function(){
@@ -155,11 +158,20 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
  
 
 })
-.controller('SupportDoc',function($scope,$rootScope,$stateParams,$ionicScrollDelegate){
+.controller('SupportDoc',function($scope,$rootScope,$stateParams,$ionicScrollDelegate,$cordovaInAppBrowser){
  
  $scope.id=$stateParams.id;
  
  
+ $scope.openNotice = function(){
+ var options = {
+ location: 'yes',
+ clearcache: 'yes',
+ toolbar: 'yes'
+ };
+ $cordovaInAppBrowser.open('https://drive.google.com/file/d/0BxWDnIMT4XvnbnR3MXpQNGsxME0/view?usp=sharing', '_system',options);
+      
+ };
 
 
 })
@@ -261,6 +273,23 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
       
     }
 
+    $scope.envoyerMail = function(){
+      
+      $ionicPopup.show({
+          template: '<input type="email" autofocus>',
+          title: '<b>Transférer le contenu du panier</b>',
+          subTitle: 'Veuillez saisir l\'email',
+          scope: $scope,
+          buttons: [
+            
+            {
+              text: 'OK',
+              type: 'button-stable'
+            
+            }
+          ]
+        });
+}
 })
 .controller('InterfaceProduit',function($scope,$rootScope,$stateParams,$ionicPopup,$ionicModal){
   $scope.id=$stateParams.id;
@@ -323,7 +352,7 @@ $ionicModal.fromTemplateUrl('templates/menu-choice.html', function($ionicModal) 
 })
 .controller('ContactServices',function($scope,$rootScope,$stateParams){
   $scope.id=$stateParams.id;
-  $scope.contactSAV=$rootScope.products[$scope.id]["contact sav"];
+  $scope.contacts=$rootScope.products[$scope.id]["contacts"];
 
 })
 .controller('Intervention',function($scope,$rootScope,$stateParams){

@@ -32,9 +32,10 @@
               
            </div>
        </div>
+
     </ion-content>
   <span ng-if="(products[1].pieces|filter:{panier : true}).length> 0">
-   <fab class="tooltips" ng-click="" style="bottom:80px;">
+   <fab class="tooltips" ng-click="envoyerMail()" style="bottom:80px;">
        <span>Transférer par mail</span>
       <i class="icon ion-forward"></i>
 

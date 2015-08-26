@@ -1,7 +1,7 @@
 
 var app =angular.module('Cozypro', ['ionic', 'QRCode.controllers','fab-component','tabSlideBox','ionMdInput','angles'])
 
-.run(function($ionicPlatform,$cordovaBarcodeScanner,$state,$rootScope,$ionicPopup,$ionicPlatform,$ionicModal,$ionicHistory,$ionicLoading,ProductService,ClientService,$ionicSideMenuDelegate) {
+.run(function($ionicPlatform,$cordovaBarcodeScanner,$state,$rootScope,$ionicPopup,$ionicPlatform,$ionicModal,$ionicHistory,$ionicLoading,ProductService,ClientService,$ionicSideMenuDelegate, $cordovaInAppBrowser) {
 
 $rootScope.showMenu = function(){
     $rootScope.menu=true;

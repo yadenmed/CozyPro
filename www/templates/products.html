@@ -39,10 +39,17 @@
                      </ion-scroll>
                  </div>
              </div>
-             <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" >
-                 <ion-slide>
-                <ion-scroll style="height:92%">  
-                <div ng-repeat = "product in products | filter:{name:searchKey.text}" class="card col grid-products">
+             <div class="row row-center" ng-if="!loadProducts">
+               
+               <center class="col col-center" style="margin:25%;">
+                 <p>Chargement en cours</p>
+                 <ion-spinner icon="ripple" class="spinner-calm"></ion-spinner>
+               </center>
+             </div>
+             <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" ng-if="loadProducts">
+                 <ion-slide >
+                <ion-scroll style="height:92%" >  
+                <div ng-repeat = "product in products | filter:{name:searchKey.text}" class="card col grid-products" >
                     <a class="item item-avatar-left" href="#/app/maintenance-intervention/{{products.indexOf(product)}}" ng-click="showMenu()" ng-if="product.local">
                         <img src="{{product.image}}" >
                         <h3>{{product.name }}</h3>
@@ -68,6 +75,7 @@
                        </a>
                     </div>
                 </div>
+                
                 </ion-scroll> 
                 </ion-slide>
                   <ion-slide>
