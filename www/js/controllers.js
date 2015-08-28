@@ -360,71 +360,63 @@ angular.module('QRCode.controllers', ['ngCordova'])
 })
 .controller('miseEnService', function ($scope, $rootScope, $stateParams, $timeout, $ionicPopup, $ionicModal) {
     $scope.step = 0;
-    $scope.message = "Assurez vous d'avoir bien branché le pass Bluetooth sur votre produit et d'avoir activer le Bluetooth sur votre appareil, puis appuyer sur commencer.";
+    $scope.message = "Assurez vous d'avoir bien branché le pass Bluetooth sur votre produit, puis appuyer sur commencer.";
     $scope.message2 = "";
 
     $scope.startScan = function () {
         $scope.step = 1;
-        $scope.message = "Scan en cours ...";
+        $scope.message = "Initialisation ...";
+        if (device.platform == "Android") {
+            ble.enable();
+        }
         $timeout(function () {
+            scan();
+
             $scope.step = 1;
-            $scope.message = "Scan en cours ...";
-            $rootScope.bleDevices = [];
-
-            ble.startScan([], function (device) {
-                $rootScope.bleDevices.push(device);
-            }, function () {
-                console.log("Une erreure est survenue");
-            });
-
+            $scope.message = "Scan ...";
             $timeout(function () {
                 ble.stopScan;
-                $scope.step = 0.5;
-            }, 5000);
-        }, 1000);
 
-    }
+                if ($rootScope.bleDevices.length == 0) {
+
+                }
+                else {
+                    $scope.connect($rootScope.passInfos.ID);
+                }
+            }, 4000);
+        }, 2000);
+    };
 
     $scope.connect = function (id) {
         $scope.step = 1;
-        $scope.message = "Connexion en cours ...";
+        $scope.message = "Connexion ...";
+        connect(id);
+
         $timeout(function () {
-            $scope.step = 1;
-            $scope.message = "Connexion en cours ...";
+            $ionicPopup.confirm({
+                title: 'Vérifications hydrauliques',
+                template: 'Avez vous bien fait les vérifications hydrauliques ?',
+                cancelText: 'Non',
+                okText: 'Oui',
+                cancelType: 'button-outline button-assertive',
+                okType: 'button-balanced'
+            }).then(function (res) {
+                if (res) {
+                    $scope.step = 2;
+                    $scope.message = "Synchronisation des paramètres ...";
+                    init();
 
-            ble.connect(id, function (result) {
-                $rootScope.passDevice = result;
-            }, err = function () {
-                console.log("Une erreure est survenue");
+                    $timeout(function () {
+                        $scope.step = 4;
+                        $scope.message = "Paramétrage";
+                    }, 2000);
+                } else {
+                    $scope.step = 3;
+                    $scope.message = "Faites les vérifications hydrauliques, et appuyer sur suivant.";
+                }
             });
-
-            $timeout(function () {
-                $ionicPopup.confirm({
-                    title: 'Vérifications hydrauliques',
-                    template: 'Avez vous bien fait les vérifications hydrauliques ?',
-                    cancelText: 'Non',
-                    okText: 'Oui',
-                    cancelType: 'button-outline button-assertive',
-                    okType: 'button-balanced'
-                }).then(function (res) {
-                    if (res) {
-                        $scope.step = 2;
-                        $scope.message = "Synchronisation des paramètres ...";
-                        // init();
-
-                        $timeout(function () {
-                            $scope.step = 4;
-                            $scope.message = "Paramétrage";
-                        }, 2000);
-                    } else {
-                        $scope.step = 3;
-                        $scope.message = "Faites les vérifications hydrauliques, et appuyer sur suivant.";
-                    }
-                });
-            }, 5000);
-        }, 1000)
-
-    }
+        }, 5000)
+    };
 
     $scope.nextStep = function () {
         $scope.step = 2;
@@ -435,8 +427,12 @@ angular.module('QRCode.controllers', ['ngCordova'])
             $scope.step = 4;
             $scope.message = "Paramétrage";
         }, 2000);
-    }
+    };
 
+    //Chart loi d'eau
+    $rootScope.tempAmbiante = 50;
+    $rootScope.tempEauMax = 50;
+    $rootScope.tempEauMin = 17;
     $scope.chart = {
         labels: [1, 2],
         datasets: [
@@ -446,7 +442,6 @@ angular.module('QRCode.controllers', ['ngCordova'])
                 pointColor: "rgba(151,187,205,0)",
                 pointStrokeColor: "#e67e22",
                 data: [0, 5]
-
             }
         ]
     };
@@ -460,6 +455,58 @@ angular.module('QRCode.controllers', ['ngCordova'])
         scaleBeginAtZero: true,
         showScale: true,
         showTooltips: false
+    };
+
+    $scope.$on("$destroy", function () {
+        ble.stopNotification($rootScope.passInfos.ID, $rootScope.passInfos.MLDPservice, $rootScope.passInfos.MLDPcharacteristic);
+        console.log("Destroy");
+    });
+
+    init = function () {
+        ble.startNotification($rootScope.passInfos.ID, $rootScope.passInfos.MLDPservice, $rootScope.passInfos.MLDPcharacteristic, receive, err);
+        $scope.message2 = "Hello World !";
+        send($scope.message2);
+    };
+
+    send = function (msg) {
+        if (msg != '') {
+            var data = stringToBytes(msg + "\r\n");
+            ble.write($rootScope.passInfos.ID, $rootScope.passInfos.MLDPservice, $rootScope.passInfos.MLDPcharacteristic, data);
+        }
+    };
+
+    scan = function () {
+        $rootScope.bleDevices = [];
+        ble.startScan([], function (device) {
+            $rootScope.bleDevices.push(device);
+        }, err);
+    };
+
+    connect = function (id) {
+        ble.connect(id, function (result) {
+            $rootScope.passDevice = result;
+        }, err);
+    };
+
+    receive = function (result) {
+        $scope.message2 += bytesToString(result);
+        $scope.$apply();
+    };
+
+    err = function () {
+        console.log("Une erreure est survenue");
+    };
+
+    stringToBytes = function (string) {
+        var array = new Uint8Array(string.length);
+        for (var i = 0, l = string.length; i < l; i++) {
+            array[i] = string.charCodeAt(i);
+        }
+        return array.buffer;
+    };
+
+    bytesToString = function (buffer) {
+        return String.fromCharCode.apply(null, new Uint8Array(buffer));
     };
 
     $ionicModal.fromTemplateUrl('templates/config-favoris.html', function ($ionicModal) {
@@ -493,9 +540,9 @@ angular.module('QRCode.controllers', ['ngCordova'])
     };
 
     //Chart loi d'eau
-     $rootScope.tempAmbiante=50;
-    $rootScope.tempEauMax=50;
-    $rootScope.tempEauMin=17;
+    $rootScope.tempAmbiante = 50;
+    $rootScope.tempEauMax = 50;
+    $rootScope.tempEauMin = 17;
     $scope.chart = {
         labels: [1, 2],
         datasets: [

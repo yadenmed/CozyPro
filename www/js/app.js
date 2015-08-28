@@ -1,7 +1,7 @@
 
 var app = angular.module('Cozypro', ['ionic', 'QRCode.controllers', 'fab-component', 'tabSlideBox', 'ionMdInput', 'angles'])
 
-.run(function ($ionicPlatform, $cordovaBarcodeScanner, $state, $rootScope, $ionicPopup, $ionicPlatform, $ionicModal, $ionicHistory, $ionicLoading, ProductService, ClientService, $ionicSideMenuDelegate, $cordovaInAppBrowser,PassDeviceService,BleDevicesService) {
+.run(function ($ionicPlatform, $cordovaBarcodeScanner, $state, $rootScope, $ionicPopup, $ionicPlatform, $ionicModal, $ionicHistory, $ionicLoading, ProductService, ClientService, $ionicSideMenuDelegate, $cordovaInAppBrowser,PassDeviceService) {
 
     $rootScope.showMenu = function () {
         $rootScope.menu = true;
@@ -26,7 +26,7 @@ var app = angular.module('Cozypro', ['ionic', 'QRCode.controllers', 'fab-compone
 
     $rootScope.bleDevices = [];
     $rootScope.passDevice = null;
-    $rootScope.MLDPservice = PassDeviceService.getMLDP();
+    $rootScope.passInfos = PassDeviceService.get();
 
     $rootScope.currentEquipement = $rootScope.products[1];
     $rootScope.currentErreur = {};
